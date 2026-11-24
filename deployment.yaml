@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project-14-app
+  labels:
+    app: project-14-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project-14-app
+  template:
+    metadata:
+      labels:
+        app: project-14-app
+    spec:
+      containers:
+        - name: project-14-container
+          image: 590507089733.dkr.ecr.us-east-2.amazonaws.com/project-14-ecr-app:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
